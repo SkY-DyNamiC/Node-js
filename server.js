@@ -6,7 +6,10 @@ const PORT =4000
 
 app.get('/hello', (req, res)=>{
     res.send("Hello the server is ready");
+    console.log("Hello")
 })
+
+
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running at http://localhost:${PORT}`)
