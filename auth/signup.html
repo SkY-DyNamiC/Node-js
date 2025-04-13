@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signup - Video Chat App</title>
+  <title>GameZone - Sign Up</title>
   <link rel="stylesheet" href="signup.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
@@ -12,22 +12,21 @@
 <body>
   <div class="container">
     <div class="left-section">
-      <h1><i class="fas fa-video"></i> Video Chat App</h1>
-      <p>Connect with anyone, anywhere, anytime with our seamless, real-time video calling platform. Secure, fast, and
-        free!</p>
+      <h1><i class="fas fa-gamepad"></i> Welcome to GameZone</h1>
+      <p>Join the ultimate gaming community. Compete, connect, and level up with players from around the world.</p>
       <ul>
-        <li><i class="fas fa-check-circle"></i> HD Video & Audio</li>
-        <li><i class="fas fa-check-circle"></i> Private Rooms</li>
-        <li><i class="fas fa-check-circle"></i> Real-Time Chat</li>
+        <li><i class="fas fa-check-circle"></i> Exclusive Game Reviews</li>
+        <li><i class="fas fa-check-circle"></i> Global Tournaments</li>
+        <li><i class="fas fa-check-circle"></i> Pro Player Guides</li>
       </ul>
     </div>
 
     <div class="right-section">
-      <h2>Create an Account</h2>
+      <h2>Create Your Gamer Profile</h2>
       <form id="signupForm" method="POST">
         <div class="input-group">
-          <label for="name">Name</label>
-          <input type="text" autocomplete="off" id="name" placeholder="Enter your name" name="username" required>
+          <label for="name">Gamer Tag</label>
+          <input type="text" autocomplete="off" id="name" placeholder="Enter your gamer tag" name="username" required>
         </div>
         <div class="input-group">
           <label for="email">Email</label>
@@ -43,8 +42,8 @@
           <input type="password" autocomplete="off" id="confirm-password" name="confirmPassword"
             placeholder="Confirm password" required>
         </div>
-        <button type="submit">Sign Up</button>
-        <p class="login-link">Already have an account? <a href="/login">Log in</a></p>
+        <button type="submit">Join GameZone</button>
+        <p class="login-link">Already a member? <a href="/login">Log in</a></p>
       </form>
     </div>
   </div>
@@ -83,12 +82,7 @@
       fetch("/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: name,
-          email,
-          password,
-          confirmPassword
-        })
+        body: JSON.stringify({ username: name, email, password, confirmPassword })
       })
         .then(res => res.json())
         .then(data => {
@@ -96,7 +90,7 @@
             alert("Signup successful!");
             window.location.href = "/login";
           } else {
-            alert("Signup successful!");
+            alert("Signup failed. Try again.");
           }
         })
         .catch(err => {
@@ -105,7 +99,6 @@
         });
     });
   </script>
-
 </body>
 
 </html>

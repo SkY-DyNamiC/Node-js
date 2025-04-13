@@ -9,6 +9,7 @@ const PORT =4000
 const userModel = require('./model/user')
 
 app.use(express.static(path.join(__dirname, 'auth')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 mongoose.connect('mongodb://localhost:27017/project')
 .then(()=> console.log("Connected to the database."))
@@ -20,6 +21,10 @@ app.get('/', (req, res)=>{
 
 app.get('/login', (req, res)=>{
     res.sendFile(path.join(__dirname, 'auth', 'login.html'))
+})
+
+app.get('/dashboard', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'Landing.html'))
 })
 
 app.post('/user', (req, res)=>{

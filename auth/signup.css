@@ -2,27 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
-    background-color: #f0f8ff;
+    background-color: #0f172a;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     animation: fadeIn 1s ease-in;
+    color: #fff;
 }
 
 .container {
     width: 90%;
     max-width: 1000px;
     display: flex;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #1e293b;
     border-radius: 12px;
     overflow: hidden;
-    transform: scale(1);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
     animation: popIn 0.8s ease;
 }
 
@@ -50,17 +50,11 @@ body {
 
 .left-section {
     flex: 1;
-    background-color: #007BFF;
-    color: white;
+    background: linear-gradient(to bottom right, #3b82f6, #1e3a8a);
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.left-section:hover {
-    background-color: #0056b3;
 }
 
 .left-section h1 {
@@ -71,10 +65,12 @@ body {
 .left-section p {
     font-size: 16px;
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .left-section ul {
     list-style: none;
+    padding-left: 0;
 }
 
 .left-section ul li {
@@ -84,19 +80,19 @@ body {
 
 .left-section i {
     margin-right: 10px;
-    color: #ffffff;
+    color: #fff;
 }
 
 .right-section {
     flex: 1;
     padding: 40px;
-    animation: fadeIn 1s ease-in;
+    background-color: #0f172a;
 }
 
 .right-section h2 {
-    color: #007BFF;
+    color: #3b82f6;
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
 }
 
@@ -107,27 +103,28 @@ body {
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #9ca3af;
 }
 
 .input-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #007BFF;
+    border: 1px solid #3b82f6;
     border-radius: 6px;
+    background-color: #1e293b;
+    color: #fff;
     outline: none;
-    transition: border 0.3s, box-shadow 0.3s;
 }
 
 .input-group input:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    border-color: #60a5fa;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #007BFF;
+    background-color: #3b82f6;
     color: white;
     font-size: 16px;
     border: none;
@@ -137,23 +134,22 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2563eb;
 }
 
 .login-link {
     margin-top: 15px;
     text-align: center;
+    color: #9ca3af;
 }
 
 .login-link a {
-    color: #007BFF;
+    color: #60a5fa;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
 }
 
 .login-link a:hover {
-    color: #0056b3;
+    color: #93c5fd;
     text-decoration: underline;
 }
 
@@ -164,46 +160,6 @@ button:hover {
     }
 
     .left-section {
-        padding: 20px;
         text-align: center;
-    }
-
-    .right-section {
-        padding: 30px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .left-section,
-    .right-section {
-        padding: 20px 15px;
-    }
-
-    .left-section h1 {
-        font-size: 24px;
-    }
-
-    .left-section p,
-    .left-section ul li {
-        font-size: 14px;
-    }
-
-    .right-section h2 {
-        font-size: 22px;
-    }
-
-    .input-group input {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .signup-link {
-        font-size: 14px;
     }
 }
