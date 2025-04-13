@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Showcase</title>
+    <link rel="stylesheet" href="games.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Top Games</h1>
+        <div class="games-grid">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <img src="11.avif" alt="Game 1 Thumbnail">
+                <h2>Cyber Racer</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Race through futuristic cities with hover cars in this thrilling arcade racer.
+                </p>
+                <button
+                    onclick="showModal('Cyber Racer', '4.0', 'Race through futuristic cities with high-speed hover cars. Experience pulse-pounding tracks, power-ups, and multiplayer chaos!')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="game-card">
+                <img src="12.avif" alt="Game 2 Thumbnail">
+                <h2>Zombie Night</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐⭐</div>
+                <p class="description">Survive the night in a zombie-infested world. Build, defend, and shoot.</p>
+                <button
+                    onclick="showModal('Zombie Night', '5.0', 'Survive the night in a zombie-infested world. Defend your base, craft weapons, and team up with friends!')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 3 -->
+            <div class="game-card">
+                <img src="13.avif" alt="Game 3 Thumbnail">
+                <h2>Mystic Quest</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Embark on a magical journey across enchanted lands to uncover secrets.</p>
+                <button
+                    onclick="showModal('Mystic Quest', '4.0', 'Embark on a magical journey filled with puzzles, hidden treasures, and epic boss fights!')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 4 -->
+            <div class="game-card">
+                <img src="14.webp" alt="Game 4 Thumbnail">
+                <h2>Sky Warriors</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Take to the skies in this fast-paced aerial dogfight game.</p>
+                <button
+                    onclick="showModal('Sky Warriors', '4.2', 'Take to the skies in fast-paced dogfights with amazing graphics and sound design.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 5 -->
+            <div class="game-card">
+                <img src="15.webp" alt="Game 5 Thumbnail">
+                <h2>Battleforge</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Real-time strategy meets deck building in this hybrid fantasy war game.</p>
+                <button
+                    onclick="showModal('Battleforge', '4.3', 'Command magical units and craft a deck in this fantasy real-time strategy game.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 6 -->
+            <div class="game-card">
+                <img src="16.jpeg" alt="Game 6 Thumbnail">
+                <h2>Neon Drift</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Master tight turns and neon-lit tracks in this stylish drift racing game.</p>
+                <button
+                    onclick="showModal('Neon Drift', '4.1', 'Slide through vibrant neon-lit cities and dominate drift racing challenges.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 7 -->
+            <div class="game-card">
+                <img src="17.webp" alt="Game 7 Thumbnail">
+                <h2>Pixel Dungeon</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Retro-style rogue-like dungeon crawler packed with loot and monsters.</p>
+                <button
+                    onclick="showModal('Pixel Dungeon', '4.0', 'Explore a pixelated dungeon, defeat monsters, and find epic loot.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 8 -->
+            <div class="game-card">
+                <img src="18.jpg" alt="Game 8 Thumbnail">
+                <h2>Alien Siege</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐⭐</div>
+                <p class="description">Defend Earth from an alien invasion in this explosive shooter game.</p>
+                <button
+                    onclick="showModal('Alien Siege', '5.0', 'Fight off waves of aliens, upgrade your weapons, and save Earth!')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 9 -->
+            <div class="game-card">
+                <img src="19.jpg" alt="Game 9 Thumbnail">
+                <h2>Kingdom Builder</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Build and expand your kingdom in this medieval strategy game.</p>
+                <button
+                    onclick="showModal('Kingdom Builder', '4.2', 'Gather resources, train armies, and conquer rival kingdoms.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 10 -->
+            <div class="game-card">
+                <img src="20.webp" alt="Game 10 Thumbnail">
+                <h2>Underworld Heist</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Plan and execute high-stakes heists in a gritty criminal underworld.</p>
+                <button
+                    onclick="showModal('Underworld Heist', '4.3', 'Assemble your crew and steal from the rich in tactical heists.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 11 -->
+            <div class="game-card">
+                <img src="21.jpg" alt="Game 11 Thumbnail">
+                <h2>Samurai Strike</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Slash your way through feudal Japan in this action slasher.</p>
+                <button
+                    onclick="showModal('Samurai Strike', '4.1', 'Experience fast-paced sword battles in a visually stunning Japan.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 12 -->
+            <div class="game-card">
+                <img src="22.webp" alt="Game 12 Thumbnail">
+                <h2>Dungeon Chef</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Hunt monsters and cook fantasy dishes in this quirky RPG.</p>
+                <button
+                    onclick="showModal('Dungeon Chef', '4.2', 'Slay beasts and cook rare meals to impress culinary judges.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 13 -->
+            <div class="game-card">
+                <img src="23.avif" alt="Game 13 Thumbnail">
+                <h2>Ghost Hunters</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐⭐</div>
+                <p class="description">Use gadgets and wits to capture ghosts haunting old mansions.</p>
+                <button
+                    onclick="showModal('Ghost Hunters', '5.0', 'Explore haunted locations and banish spooky spirits.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 14 -->
+            <div class="game-card">
+                <img src="24.png" alt="Game 14 Thumbnail">
+                <h2>Magic Tactics</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Cast spells and outsmart foes in this turn-based fantasy battler.</p>
+                <button
+                    onclick="showModal('Magic Tactics', '4.4', 'Plan your moves and master the arcane arts to defeat enemies.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 15 -->
+            <div class="game-card">
+                <img src="25.avif" alt="Game 15 Thumbnail">
+                <h2>Urban Skater</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Perform tricks and skate through city streets in style.</p>
+                <button
+                    onclick="showModal('Urban Skater', '4.0', 'Grind rails, hit ramps, and customize your skater.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 16 -->
+            <div class="game-card">
+                <img src="26.jpg" alt="Game 16 Thumbnail">
+                <h2>Shadow Assassin</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐⭐</div>
+                <p class="description">Strike from the shadows in this stealth-based ninja adventure.</p>
+                <button
+                    onclick="showModal('Shadow Assassin', '5.0', 'Silently eliminate targets and vanish into the night.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 17 -->
+            <div class="game-card">
+                <img src="27.jpeg" alt="Game 17 Thumbnail">
+                <h2>Island Tycoon</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Build your own resort empire on a tropical island.</p>
+                <button
+                    onclick="showModal('Island Tycoon', '4.3', 'Manage resources and design your dream vacation island.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 18 -->
+            <div class="game-card">
+                <img src="28.webp" alt="Game 18 Thumbnail">
+                <h2>Monster Arena</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Train monsters and battle other trainers in the arena.</p>
+                <button onclick="showModal('Monster Arena', '4.2', 'Catch, evolve, and battle epic creatures.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 19 -->
+            <div class="game-card">
+                <img src="29.jpg" alt="Game 19 Thumbnail">
+                <h2>Galactic Miner</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Mine asteroids and trade rare ores in a deep-space economy.</p>
+                <button
+                    onclick="showModal('Galactic Miner', '4.1', 'Pilot your ship across galaxies in search of valuable minerals.')">View
+                    Details</button>
+            </div>
+
+            <!-- Game 20 -->
+            <div class="game-card">
+                <img src="30.jpg" alt="Game 20 Thumbnail">
+                <h2>Time Jumper</h2>
+                <div class="rating">Rating: ⭐⭐⭐⭐☆</div>
+                <p class="description">Jump through time to solve mysteries and prevent disasters.</p>
+                <button
+                    onclick="showModal('Time Jumper', '4.4', 'Travel through eras to rewrite history and solve epic puzzles.')">View
+                    Details</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalRating"></p>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal(title, rating, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalRating').textContent = 'Rating: ⭐ ' + rating;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('gameModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('gameModal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

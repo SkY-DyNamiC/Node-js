@@ -1,0 +1,144 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+/* Section Title */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 40px;
+    color: #38bdf8;
+    text-shadow: 0 0 8px #3b82f6, 0 0 16px #0ea5e9;
+}
+
+/* Grid Layout */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Game Card */
+.game-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.game-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6), 0 0 40px rgba(236, 72, 153, 0.2);
+}
+
+.game-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* Card Content */
+.game-card h2 {
+    font-size: 1.5rem;
+    margin: 16px;
+    color: #f8fafc;
+}
+
+.rating {
+    margin: 0 16px;
+    font-size: 1rem;
+    color: #facc15;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rating i {
+    color: #facc15;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 8px 16px 16px;
+    flex-grow: 1;
+}
+
+/* View Details Button */
+.game-card button {
+    margin: 0 16px 16px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #3b82f6, #ec4899);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.game-card button:hover {
+    background: linear-gradient(to right, #2563eb, #db2777);
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+.modal-content {
+    background-color: #1e293b;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    color: #e2e8f0;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.modal-content h2 {
+    color: #38bdf8;
+    margin-top: 0;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+/* Close Button */
+.close {
+    color: #94a3b8;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover {
+    color: #fff;
+}

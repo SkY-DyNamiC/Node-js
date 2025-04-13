@@ -27,6 +27,10 @@ app.get('/dashboard', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public', 'Landing.html'))
 })
 
+app.get('/gaming', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'games.html'))
+})
+
 app.post('/user', (req, res)=>{
     userModel.create(req.body)
     .then((data)=> res.json(data))
