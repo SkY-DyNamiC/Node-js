@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameZone News</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="news.css" />
+</head>
+<body>
+  <div class="news-container">
+    <h1>Latest GameZone News</h1>
+    <div class="news-card" data-title="Elden Ring DLC Announced" data-content="FromSoftware reveals a highly-anticipated expansion for Elden Ring, titled 'Shadow of the Erdtree,' set to launch this summer. Expect new lore, bosses, and mechanics.">
+      <h2>🔥 Elden Ring DLC Announced</h2>
+      <p>FromSoftware reveals a highly-anticipated expansion for Elden Ring...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="GTA VI Trailer Drops" data-content="Rockstar Games surprises fans with an official trailer for GTA VI, showcasing new characters, futuristic mechanics, and an upgraded Vice City.">
+      <h2>🎮 GTA VI Trailer Drops</h2>
+      <p>Rockstar Games surprises fans with an official trailer for GTA VI...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Valorant Gets New Agent" data-content="Riot Games introduces 'Nyx', a stealth-based controller agent with time-warping abilities. Early access begins next week.">
+      <h2>⚔️ Valorant Gets New Agent</h2>
+      <p>Riot Games introduces 'Nyx', a stealth-based controller...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Starlight Echoes Impresses" data-content="This pixel-art space RPG is taking the indie scene by storm with its emotional storytelling and tactical combat.">
+      <h2>🕹️ Indie Game 'Starlight Echoes'</h2>
+      <p>This pixel-art space RPG is taking the indie scene by storm...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="news-card" data-title="Cyberpunk 2077 Expansion Released" data-content="Phantom Liberty expansion adds Idris Elba, new areas, and quests. Fans are thrilled with its performance improvements.">
+      <h2>🚀 Cyberpunk 2077 Expansion Released</h2>
+      <p>Phantom Liberty expansion adds Idris Elba and new areas...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Minecraft RTX Update" data-content="Mojang rolls out full RTX support in Minecraft, allowing players to explore vibrant worlds with stunning lighting effects.">
+      <h2>🌈 Minecraft Gets RTX Update</h2>
+      <p>Mojang rolls out full RTX support in Minecraft...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="League of Legends New Season" data-content="Season 14 introduces new items, a revamped jungle, and fresh lore chapters with visual updates to classic champions.">
+      <h2>🏆 League of Legends Season 14</h2>
+      <p>Season 14 introduces new items, a revamped jungle...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Steam Spring Sale Live" data-content="Massive discounts on AAA and indie titles including The Witcher 3, Hades, and Resident Evil Village until April 25.">
+      <h2>🤑 Steam Spring Sale is Live</h2>
+      <p>Massive discounts on AAA and indie titles...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="FIFA 25 Features Leaks" data-content="Leaked footage hints at improved physics, women's club teams, and new career mode features for FIFA 25.">
+      <h2>⚽ FIFA 25 Features Leaked</h2>
+      <p>Leaked footage hints at improved physics and career mode...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Fortnite Gets Marvel Crossover" data-content="Epic Games brings back Marvel characters with new skins, events, and an exclusive storyline quest.">
+      <h2>🦸 Fortnite x Marvel Returns</h2>
+      <p>Epic Games brings back Marvel characters with new skins...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Assassin’s Creed: Red Teased" data-content="Ubisoft teases the next title set in feudal Japan, featuring samurai and shinobi stealth gameplay.">
+      <h2>🗡️ Assassin’s Creed: Red Teased</h2>
+      <p>Ubisoft teases the next title set in feudal Japan...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="news-card" data-title="Call of Duty Zombies Returns" data-content="CoD Modern Warfare brings back the iconic zombie mode with improved AI, dark storytelling, and new perks.">
+      <h2>🧟 Call of Duty Zombies Returns</h2>
+      <p>CoD Modern Warfare brings back the iconic zombie mode...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="newsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-content"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("newsModal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalContent = document.getElementById("modal-content");
+    const closeBtn = document.querySelector(".close-btn");
+
+    document.querySelectorAll(".read-more").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        const card = btn.closest(".news-card");
+        modalTitle.textContent = card.dataset.title;
+        modalContent.textContent = card.dataset.content;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+
+    window.onclick = e => {
+      if (e.target == modal) modal.style.display = "none";
+    };
+  </script>
+</body>
+</html>

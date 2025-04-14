@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tournament Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="tournament.css" />
+</head>
+
+<body>
+    <div class="tournament-wrapper">
+
+        <h1>🎮 GameZone Tournaments</h1>
+
+        <div class="top-bar">
+            <input type="text" id="search" placeholder="Search tournaments..." />
+            <select id="category">
+                <option value="all">All Categories</option>
+                <option value="fps">FPS</option>
+                <option value="battle-royale">Battle Royale</option>
+                <option value="sports">Sports</option>
+                <option value="rpg">RPG</option>
+            </select>
+        </div>
+
+        <h2>Upcoming Battles</h2>
+        <div class="tournament-grid" id="tournamentGrid">
+        </div>
+
+        <div class="leaderboard-section">
+            <h2>🏆 Top Players</h2>
+            <ol id="leaderboard">
+            </ol>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content animate">
+                <span onclick="closeModal()" class="close">&times;</span>
+                <h2 id="modal-title">Join Tournament</h2>
+                <p id="modal-date"></p>
+                <p id="modal-prize"></p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=example@upi"
+                    alt="QR Code" />
+                <form>
+                    <input type="text" placeholder="Your Gamer ID" required />
+                    <input type="email" placeholder="Email" required />
+                    <label>Upload Payment Screenshot:</label>
+                    <input type="file" accept="image/*" required />
+                    <button type="submit">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const tournaments = [
+            { name: 'Valorant Showdown', date: 'April 25, 2025', prize: '₹50,000', category: 'fps' },
+            { name: 'FIFA Ultimate League', date: 'May 10, 2025', prize: '₹30,000', category: 'sports' },
+            { name: 'Free Fire Frenzy', date: 'April 28, 2025', prize: '₹40,000', category: 'battle-royale' },
+            { name: 'PUBG Mobile Clash', date: 'May 15, 2025', prize: '₹70,000', category: 'battle-royale' },
+            { name: 'CS:GO Legends', date: 'May 20, 2025', prize: '₹60,000', category: 'fps' },
+            { name: 'Clash Royale Cup', date: 'May 30, 2025', prize: '₹25,000', category: 'rpg' },
+            { name: 'Fortnite Faceoff', date: 'June 5, 2025', prize: '₹1,00,000', category: 'battle-royale' },
+            { name: 'Rocket League Rumble', date: 'June 10, 2025', prize: '₹35,000', category: 'sports' },
+            { name: 'Minecraft Build-Off', date: 'June 15, 2025', prize: '₹20,000', category: 'rpg' },
+            { name: 'Overwatch Omega Cup', date: 'June 20, 2025', prize: '₹45,000', category: 'fps' },
+            { name: 'NBA 2K25 Showdown', date: 'June 25, 2025', prize: '₹30,000', category: 'sports' },
+            { name: 'BGMI Deathmatch', date: 'July 1, 2025', prize: '₹85,000', category: 'battle-royale' },
+            { name: 'Apex Arena Masters', date: 'July 5, 2025', prize: '₹90,000', category: 'battle-royale' },
+            { name: 'Call of Duty Warfare', date: 'July 10, 2025', prize: '₹75,000', category: 'fps' },
+            { name: 'eFootball Summer Slam', date: 'July 15, 2025', prize: '₹40,000', category: 'sports' },
+            { name: 'Hearthstone Heroes Clash', date: 'July 20, 2025', prize: '₹25,000', category: 'rpg' },
+            { name: 'League of Legends Showdown', date: 'July 25, 2025', prize: '₹95,000', category: 'rpg' },
+            { name: 'Dota 2 Nexus Cup', date: 'July 30, 2025', prize: '₹1,20,000', category: 'rpg' },
+            { name: 'Rainbow Six Siege Clash', date: 'August 2, 2025', prize: '₹50,000', category: 'fps' },
+            { name: 'Smash Bros Ultimate Brawl', date: 'August 5, 2025', prize: '₹60,000', category: 'battle-royale' },
+        ];
+
+
+        const leaderboardData = [
+            { name: 'ShadowSlayer', points: 1200 },
+            { name: 'NeoFury', points: 1120 },
+            { name: 'PixelPhantom', points: 1090 },
+            { name: 'BlazeKnight', points: 980 },
+            { name: 'WolfReign', points: 920 },
+            { name: 'ThunderStrike', points: 900 },
+            { name: 'IronGamer', points: 880 },
+            { name: 'DarkKnight', points: 850 },
+            { name: 'SpeedsterX', points: 810 },
+            { name: 'MysticWarrior', points: 780 },
+            { name: 'EagleEye', points: 750 },
+            { name: 'FlameDragon', points: 720 },
+            { name: 'GhostRider', points: 690 },
+            { name: 'StormShadow', points: 660 },
+        ];
+
+        function renderTournaments() {
+            const search = document.getElementById('search').value.toLowerCase();
+            const selectedCategory = document.getElementById('category').value;
+            const container = document.getElementById('tournamentGrid');
+            container.innerHTML = '';
+
+            tournaments
+                .filter(t => t.name.toLowerCase().includes(search))
+                .filter(t => selectedCategory === 'all' || t.category === selectedCategory)
+                .forEach(t => {
+                    const div = document.createElement('div');
+                    div.className = 'tournament-card';
+                    div.onclick = () => openModal(t.name, t.date, t.prize);
+                    div.innerHTML = `
+            <h3>${t.name}</h3>
+            <p>🗓️ ${t.date}</p>
+            <p>🏆 ${t.prize}</p>
+            <button class="join-btn">Join Now</button>
+          `;
+                    container.appendChild(div);
+                });
+        }
+
+        function renderLeaderboard() {
+            const container = document.getElementById('leaderboard');
+            container.innerHTML = '';
+
+            // Sort leaderboard by points
+            leaderboardData.sort((a, b) => b.points - a.points);
+
+            // Create the left, center, and right sections
+            const left = document.createElement('div');
+            const center = document.createElement('div');
+            const right = document.createElement('div');
+
+            left.className = 'leaderboard-left';
+            center.className = 'leaderboard-center';
+            right.className = 'leaderboard-right';
+
+            // Add the top 5 players to the center
+            leaderboardData.slice(0, 5).forEach((p, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${p.name} - ${p.points} pts`;
+                center.appendChild(li);
+            });
+
+            // Add remaining players to left and right
+            leaderboardData.slice(5).forEach((p, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${p.name} - ${p.points} pts`;
+                if (index % 2 === 0) {
+                    left.appendChild(li); // Left side
+                } else {
+                    right.appendChild(li); // Right side
+                }
+            });
+
+            // Append the sections to the container
+            container.appendChild(left);
+            container.appendChild(center);
+            container.appendChild(right);
+        }
+
+        function openModal(title, date, prize) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-date').innerText = `Date: ${date}`;
+            document.getElementById('modal-prize').innerText = `Prize: ${prize}`;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target === document.getElementById('modal')) {
+                closeModal();
+            }
+        };
+
+        document.getElementById('search').addEventListener('input', renderTournaments);
+        document.getElementById('category').addEventListener('change', renderTournaments);
+
+        renderTournaments();
+        renderLeaderboard();
+    </script>
+</body>
+
+</html>

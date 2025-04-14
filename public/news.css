@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0d0f1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 20px;
+    background-image: linear-gradient(145deg, #0d0f1a 0%, #1a1c2e 100%);
+}
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(18, 20, 30, 0.85);
+    border: 2px solid #2e2e3f;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+}
+.news-container h1 {
+    text-align: center;
+    color: #00ffd5;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00ffd5;
+}
+.news-card {
+    background-color: #1b1d2e;
+    margin-bottom: 30px;
+    padding: 25px;
+    border-left: 5px solid #00ffd5;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+.news-card h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.news-card p {
+    color: #c0c0c0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #00ffd5;
+    color: #0d0f1a;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #00bfa1;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .news-container {
+        padding: 20px;
+    }
+
+    .news-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .news-container h1 {
+        font-size: 2.2rem;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(13, 15, 26, 0.9);
+}
+
+.modal-content {
+    background-color: #1b1d2e;
+    margin: 10% auto;
+    padding: 30px;
+    border: 2px solid #00ffd5;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    animation: slideFade 0.4s ease;
+}
+
+@keyframes slideFade {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    color: #00ffd5;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #c0c0c0;
+}
+
+.close-btn {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #00ffd5;
+}
+

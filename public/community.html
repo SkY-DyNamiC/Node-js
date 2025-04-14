@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community | GameZone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="community.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="community-wrapper">
+    <header>
+      <h1>Welcome to the GameZone Community! 🎮</h1>
+      <p>Join thousands of players around the world and get the latest news, tips, and updates.</p>
+      <div class="dynamic-stats">
+        <p><strong>Community Members:</strong> <span id="memberCount">Loading...</span></p>
+        <p><strong>Recent Joiner:</strong> <span id="recentJoiner">Loading...</span></p>
+      </div>
+    </header>
+
+    <section class="community-features">
+      <h2>Community Features</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <h3>Discussion Forums</h3>
+          <p>Join lively discussions with fellow gamers about strategy, game reviews, and more!</p>
+        </div>
+        <div class="feature-card">
+          <h3>Events & Tournaments</h3>
+          <p>Participate in regular events and tournaments to showcase your skills and win prizes!</p>
+        </div>
+        <div class="feature-card">
+          <h3>Live Streams</h3>
+          <p>Watch and interact with your favorite streamers in real-time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="join-community">
+      <h2>Join the Community</h2>
+      <p>Become a member of the GameZone Community to unlock special rewards, get VIP access, and more.</p>
+      <button onclick="openJoinModal()">Join Now</button>
+    </section>
+
+    <div id="join-modal" class="modal">
+      <div class="modal-content animate">
+        <span onclick="closeJoinModal()" class="close">&times;</span>
+        <h2>Join the GameZone Community</h2>
+        <form id="join-form">
+          <input type="text" id="fullName" placeholder="Full Name" required />
+          <input type="text" id="username" placeholder="Username" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="number" id="age" placeholder="Age" required />
+          <select id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" id="game" placeholder="Favorite Game" />
+          <textarea id="interests" placeholder="Your Interests..." rows="3"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 GameZone - All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const memberCountEl = document.getElementById("memberCount");
+    const recentJoinerEl = document.getElementById("recentJoiner");
+
+    let memberCount = 1789;
+    let recentJoiner = "ShadowSlayer99";
+
+    function updateStats() {
+      memberCountEl.textContent = memberCount;
+      recentJoinerEl.textContent = recentJoiner;
+    }
+
+    function openJoinModal() {
+      document.getElementById('join-modal').style.display = 'block';
+    }
+
+    function closeJoinModal() {
+      document.getElementById('join-modal').style.display = 'none';
+    }
+
+    document.getElementById("join-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fullName = document.getElementById("fullName").value;
+      const username = document.getElementById("username").value;
+
+      if (fullName && username) {
+        recentJoiner = username;
+        memberCount++;
+        updateStats();
+        alert(`Welcome, ${fullName}! You're now part of the GameZone Community.`);
+        closeJoinModal();
+        this.reset();
+      }
+    });
+
+    updateStats();
+  </script>
+</body>
+
+</html>

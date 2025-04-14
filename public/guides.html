@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameZone Guides</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="guides.css" />
+</head>
+<body>
+  <div class="guides-container">
+    <h1>🎮 GameZone Pro Guides</h1>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="🔍 Search guides...">
+      <select id="categoryFilter">
+        <option value="all">🎲 All Categories</option>
+        <option value="fps">🎯 FPS</option>
+        <option value="rpg">⚔️ RPG</option>
+        <option value="sandbox">🧱 Sandbox</option>
+        <option value="strategy">🧠 Strategy</option>
+        <option value="sports">⚽ Sports</option>
+      </select>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggleView" />
+        <span class="slider"></span>
+        <span class="toggle-label">Expand All</span>
+      </label>
+    </div>
+
+    <div id="guideList">
+      <div class="guide-card" data-title="Mastering Elden Ring" data-category="rpg" data-full="Learn how to build the perfect dexterity-based character, defeat Malenia, and uncover hidden lore areas with this comprehensive guide.">
+        <h2>⚔️ Mastering Elden Ring</h2>
+        <p class="guide-desc">Build the perfect dexterity-based character & defeat Malenia...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="Valorant Aim Training Tips" data-category="fps" data-full="This guide breaks down key drills, crosshair placement, and professional warmups to help you rank up faster.">
+        <h2>🎯 Valorant Aim Training Tips</h2>
+        <p class="guide-desc">Key drills, crosshair placement, and pro warmups to rank up...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="GTA VI Money Making Tricks" data-category="sandbox" data-full="From stock market exploits to heist optimization, learn how to rake in millions in Vice City.">
+        <h2>💸 GTA VI Money-Making Tricks</h2>
+        <p class="guide-desc">Stock exploits and heist tricks to earn millions in Vice City...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="Minecraft Redstone 101" data-category="sandbox" data-full="Everything you need to know to start creating epic contraptions, auto-farms, and secret doors with Redstone.">
+        <h2>🧱 Minecraft Redstone 101</h2>
+        <p class="guide-desc">Start creating epic auto-farms and secret doors with Redstone...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="Call of Duty Loadout Meta" data-category="fps" data-full="Find out the top-tier loadouts for ranked play, including tuning for recoil control and sprint-to-fire speeds.">
+        <h2>🔫 CoD Loadout Meta 2025</h2>
+        <p class="guide-desc">Top-tier loadouts for ranked play and recoil control tips...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+      <div class="guide-card" data-title="FIFA 25 Dribbling Masterclass" data-category="sports" data-full="Unlock pro-level dribbling and combo skills to leave defenders spinning in FIFA 25.">
+        <h2>⚽ FIFA 25 Dribbling Masterclass</h2>
+        <p class="guide-desc">Unlock pro-level dribbling and combo skills in FIFA 25...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="PUBG Tactical Movement" data-category="fps" data-full="Master jiggle peeking, proning, and flank angles to dominate in PUBG.">
+        <h2>🏃 PUBG Tactical Movement</h2>
+        <p class="guide-desc">Jiggle peeking, proning, and flanking domination in PUBG...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="The Sims 5 Life Simulation Tips" data-category="sandbox" data-full="Make your Sims thrive with this ultimate guide to careers, relationships, and moodlets.">
+        <h2>👨‍👩‍👧 The Sims 5 Life Tips</h2>
+        <p class="guide-desc">Ultimate guide to careers, moodlets & more in Sims 5...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="Zelda: Tears of the Kingdom Shrines" data-category="rpg" data-full="Uncover all hidden shrine locations and puzzle solutions across Hyrule.">
+        <h2>🗺️ Zelda: Shrines & Secrets</h2>
+        <p class="guide-desc">All hidden shrine locations and puzzle solutions...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="League of Legends Lane Control" data-category="strategy" data-full="Understand wave management, lane freezing, and zoning in all lanes.">
+        <h2>🧠 LoL Lane Control Guide</h2>
+        <p class="guide-desc">Wave management, lane freezing, and zoning tactics...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+
+      <div class="guide-card" data-title="Starfield Ship Building Guide" data-category="strategy" data-full="Design the best ships for long-range combat, cargo, or stealth missions in Starfield.">
+        <h2>🚀 Starfield Ship Builder</h2>
+        <p class="guide-desc">Best ship builds for combat, cargo & stealth in Starfield...</p>
+        <a href="#" class="read-guide">Read Guide</a>
+      </div>
+    </div>
+  </div>
+  <div id="guideModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-content"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("guideModal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalContent = document.getElementById("modal-content");
+    const closeBtn = document.querySelector(".close-btn");
+
+    document.querySelectorAll(".read-guide").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        const card = btn.closest(".guide-card");
+        modalTitle.textContent = card.dataset.title;
+        modalContent.textContent = card.dataset.full;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const toggleView = document.getElementById("toggleView");
+
+    function filterGuides() {
+      const keyword = searchInput.value.toLowerCase();
+      const category = categoryFilter.value;
+      document.querySelectorAll(".guide-card").forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const cardCategory = card.dataset.category;
+        const matchesSearch = title.includes(keyword);
+        const matchesCategory = (category === "all" || category === cardCategory);
+        card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterGuides);
+    categoryFilter.addEventListener("change", filterGuides);
+
+    toggleView.addEventListener("change", () => {
+      const showFull = toggleView.checked;
+      document.querySelectorAll(".guide-card").forEach(card => {
+        const desc = card.querySelector(".guide-desc");
+        desc.textContent = showFull ? card.dataset.full : desc.dataset.short || desc.textContent;
+      });
+    });
+  </script>
+</body>
+</html>
